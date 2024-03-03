@@ -70,9 +70,9 @@ chatApp.controller('chatApp.message', ['$scope', 'getSockJS', '$http', '$rootSco
             console.log('close');
         };
         
-        $scope.selectSessionSend = function (sesion) {
-            console.log(sesion);
-            $scope.userSelected = sesion;
+        $scope.selectSessionSend = function (session) {
+            console.log(session);
+            $scope.userSelected = session;
             updateMessages();
         }
 
@@ -87,13 +87,14 @@ chatApp.controller('chatApp.message', ['$scope', 'getSockJS', '$http', '$rootSco
                 message: message,
                 date: new Date().toString()
             });
+            $scope.messageSend = "";
 
             updateMessages();
         }
 
         var updateMessages = function () {
             $scope.messageFilter = [];
-            console.log($scope.messageUser)
+            // console.log($scope.messageUser)
 
             for (data  in $scope.messageUser){
                 console.log(data)
@@ -103,6 +104,6 @@ chatApp.controller('chatApp.message', ['$scope', 'getSockJS', '$http', '$rootSco
                     $scope.messageFilter.push($scope.messageUser[data]);
                 }
             }
-            console.log($scope.messageFilter)
+            // console.log($scope.messageFilter)
         }
     }]);
